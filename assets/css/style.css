@@ -1,0 +1,21 @@
+h1, h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+#start {
+    font-size: 40px;
+    background-color: #ffffff;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#firstPage {
+    margin-left: 150px;
+    
+}
+
+p {
+    background-color: white;
+    margin: 0px;
+    margin-bottom: 0rem;
+}
