@@ -1,5 +1,8 @@
 var userCorrect = 0;
 var userIncorrect = 0;
+var minutes = 10;
+var intervalId;
+var unanswered = 0;
 
 
 $(document).ready(function() {
@@ -9,12 +12,26 @@ $("#questions").hide();
 $("#start").click(function(){
     $(this).hide();
     $("#questions").show();
-});
 
+    function run() {
+        clearInterval(intervalId);
+        intervalId = setInterval(decrement, 1000);
+    }
+
+    function decrement () {
+        minutes--;
+        $("#timeRemaining").html("<h3> Time Remaining: " + minutes + "</h3>")
+        
+        if (minutes === 0) {
+            stop();
+        }
+    }
+    run()  
+});
 
 $("#finalScore").hide();
 
-$("#finishedButton").click(function (){
+$("#finishedButton").click(function(){
     $(this).hide();
     $("#questions").hide();
     $("#finalScore").show();
@@ -29,9 +46,9 @@ $("#finishedButton").click(function (){
   } else {
       userIncorrect++;
   }
+  scoreBoard();
 
   });
-
 
   $("#questionTwo").click(function() {
     var answerTwo = $('input[type="radio"][name="drink"]:checked').val();
@@ -42,6 +59,7 @@ $("#finishedButton").click(function (){
     } else {
         userIncorrect++;
     }
+    scoreBoard();
   
     });
 
@@ -54,6 +72,7 @@ $("#finishedButton").click(function (){
         } else {
             userIncorrect++;
         }
+        scoreBoard();
 
     })
 
@@ -66,6 +85,7 @@ $("#finishedButton").click(function (){
         } else {
             userIncorrect++;
         }
+        scoreBoard();
     })
 
     $("#questionFive").click(function(){
@@ -75,16 +95,23 @@ $("#finishedButton").click(function (){
         if (answerFive === "2") {
             userCorrect++;
         } else {
-            userIncorrect++;
+            userIncorrect++;      
         }
+        scoreBoard();
+       
     })
 
-    $("userCorrect").text(userCorrect);
-   
+    function stop() {
+        clearInterval(intervalId)
+        scoreBoard();
+    }
 
+    var scoreBoard = function() {
+        $("#userCorrect").text("Correct Answers: " + userCorrect)
+        $("#userIncorrect").text("Incorrect Answers: " + userIncorrect)
+    }
 
-
-
+ 
 
 });
 
