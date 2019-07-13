@@ -1,5 +1,13 @@
-h1, h2, h3 {
+#container {
+    margin: 30px;
+}
+
+h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
+}
+
+h4 {
+    font-size: 12px;
 }
 
 #start {
@@ -19,4 +27,24 @@ p {
     margin-bottom: 0rem;
 }
 
+input[type="radio"] {
+    margin: 10px;
+}
 
+#finishedButton {
+    padding: 10px;
+    background-color: #FFC0CB;
+}
+
+#start {
+    background-color: #FFC0CB;
+}
+
+#correctAnswersText {
+    font-weight: bold;
+}
+
+span {
+    color: #FF69B4;
+    font-weight: bold;
+}
