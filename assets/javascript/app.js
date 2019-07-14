@@ -28,18 +28,26 @@ $("#start").click(function(){
             return;
         }
 
+        
         if (seconds === 0) {
             minutes--;
             $("#minute").text(minutes);
             seconds = 60;
         }
-    
+
+        
         seconds--;
         $("#seconds").text(seconds);
         if (b === false) {// should only hit once
             $('#minute').text(2);
             b = true;
-        }        
+        }
+
+        if (seconds < 10) {
+            $("#seconds").text("0" + seconds)
+        } else {
+            $("#seconds").text(seconds);
+        }
     }
     run()  
 });
